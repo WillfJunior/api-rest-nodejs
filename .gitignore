@@ -1,0 +1,3 @@
+db/app.db
+node_modules
+.env
