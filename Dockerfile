@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ./build .
+COPY /build .
 
 EXPOSE 3333
 
