@@ -33,4 +33,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: false
-          tags: willfjr86/api-node-ts:latest
+          tags: willfjr86/apinode-withci:latest
