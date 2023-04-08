@@ -35,6 +35,8 @@ describe('transactions routes', () => {
       title: 'new Transaction',
       amount: 1000,
       type: 'credit',
+      expiration_date: new Date(),
+      payment_date: new Date(),
     })
     const cookies = response.get('Set-Cookie')
     const listTransactionResponse = await request(app.server)
@@ -55,6 +57,8 @@ describe('transactions routes', () => {
       title: 'new Transaction',
       amount: 1000,
       type: 'credit',
+      expiration_date: new Date(),
+      payment_date: new Date(),
     })
     const cookies = response.get('Set-Cookie')
     const listTransactionResponse = await request(app.server)
@@ -82,6 +86,8 @@ describe('transactions routes', () => {
       title: 'new Transaction',
       amount: 1000,
       type: 'credit',
+      expiration_date: new Date(),
+      payment_date: new Date(),
     })
     const cookies = response.get('Set-Cookie')
 
@@ -92,6 +98,8 @@ describe('transactions routes', () => {
         title: 'new Transaction',
         amount: 500,
         type: 'debit',
+        expiration_date: new Date(),
+        payment_date: new Date(),
       })
 
     const summaryResponse = await request(app.server)
