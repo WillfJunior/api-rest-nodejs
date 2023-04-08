@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { FastifyInstance } from 'fastify'
 import { knex } from '../database'
 import { z } from 'zod'
@@ -76,11 +77,12 @@ export async function transactionsRoutes(app: FastifyInstance) {
         title: z.string(),
         amount: z.number(),
         type: z.enum(['credit', 'debit']),
+        expiration_date: z.string(),
+        payment_date: z.string(),
       })
 
-      const { title, amount, type } = createTransactionBodySchema.parse(
-        request.body,
-      )
+      const { title, amount, type, expiration_date, payment_date } =
+        createTransactionBodySchema.parse(request.body)
 
       let sessionId = request.cookies.sessionId
 
@@ -98,6 +100,8 @@ export async function transactionsRoutes(app: FastifyInstance) {
         title,
         amount: type === 'credit' ? amount : amount * -1,
         session_id: sessionId,
+        expiration_date,
+        payment_date,
       })
       return reply.status(201).send()
     },
