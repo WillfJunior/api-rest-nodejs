@@ -24,6 +24,8 @@ describe('transactions routes', () => {
         title: 'new Transaction',
         amount: 1000,
         type: 'credit',
+        expiration_date: new Date(),
+        payment_date: new Date(),
       })
       .expect(201)
   })
